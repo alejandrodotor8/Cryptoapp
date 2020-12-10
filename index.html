@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@700&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Crytoapp</title>
+	</head>
+	<body>
+		<header>
+			<h1>Cryptoapp</h1>
+		</header>
+		<main id="main">
+			<figure>
+				<img class="art_img" src="./img/art.svg" alt="bitcoin draw" />
+			</figure>
+			<form id="form" action="">
+				<div class="form_div__text">
+					<span>ELIGE TU MONEDA</span>
+				</div>
+				<input
+					id="input_coin"
+					class="from_input"
+					list="coin"
+					placeholder="Elige tu moneda"
+					onfocus="this.value=''"
+					name="coin"
+				/>
+				<datalist id="coin">
+					<option value="COL">Peso Colombiano</option>
+					<option value="MXN">Peso Mexicano</option>
+					<option value="USD">Dolar Estadounidense</option>
+					<option value="EUR">Euros</option>
+					<option value="GBP">Libras</option>
+				</datalist>
+
+				<div class="form_div__text">
+					<span>ELIGE TU CRYPTOMONEDA</span>
+				</div>
+				<input
+					id="input_crypto-coin"
+					class="from_input"
+					list="crypto-coin"
+					placeholder="Elige tu cryptomoneda"
+					onfocus="this.value=''"
+					name="cryptoCoin"
+				/>
+				<datalist id="crypto-coin">
+					<!-- <option value="Bitcoin"></option>
+               <option value="Ethereum"></option> 
+            -->
+				</datalist>
+				<button class="form_btn" type="submit">
+					Cotizar
+				</button>
+         </form>
+         <div id="section_result" class="result"></div>
+		</main>
+		<script src="./app.js"></script>
+	</body>
+</html>
