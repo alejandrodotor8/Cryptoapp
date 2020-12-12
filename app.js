@@ -84,21 +84,26 @@ async function readAPI() {
 function showResult(result) {
 	limpiarHTML();
 	console.log(result);
-
+	const valueInput = document.querySelector('#form_valor__inpup').value;
 	const { coin, cryptoCoin } = objSearch;
+
+	console.log(parseFloat(result.PRICE.replace(/,/g, '')));
+	console.log(Number(valueInput));
 
 	const section = document.createElement('section');
 	section.classList.add('section_result');
 	section.innerHTML = `
       <div>
-         <span class="coin-type">${coin}</span>
+         <span class="coin-type">${valueInput} ${cryptoCoin} </span>
          <img class="img_arrow" src="./img/arrow.svg" alt="" />
-      <span class="coin-type">${cryptoCoin}</span>
+      <span class="coin-type">${coin}</span>
       </div>
-      <div><span class="total_result">${result.PRICE}</span></div>
+      <div><span class="total_result">${parseFloat(result.PRICE) *
+			Number(valueInput)}</span></div>
    `;
 	sectionResult.appendChild(section);
 }
+
 
 function alert(msg) {
 	const alerta = document.querySelector('.form_error');

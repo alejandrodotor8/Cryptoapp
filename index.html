@@ -20,6 +20,35 @@
 				<img class="art_img" src="./img/art.svg" alt="bitcoin draw" />
 			</figure>
 			<form id="form" action="">
+
+				<div class="form_div__text">
+					<span>ESCRIBE UN VALOR</span>
+				</div>
+				<input
+				value="1"
+				type="number"
+				id="form_valor__inpup"
+					class="from_input"
+					placeholder="Escribe un valor"
+					onfocus="this.value=''"
+				/>
+		
+				<div class="form_div__text">
+					<span>ELIGE TU CRYPTOMONEDA</span>
+				</div>
+				<input
+					id="input_crypto-coin"
+					class="from_input"
+					list="crypto-coin"
+					placeholder="Elige tu cryptomoneda"
+					onfocus="this.value=''"
+					name="cryptoCoin"
+				/>
+				<datalist id="crypto-coin">
+					<!-- <option value="Bitcoin"></option>
+               <option value="Ethereum"></option> 
+            -->
+				</datalist>
 				<div class="form_div__text">
 					<span>ELIGE TU MONEDA</span>
 				</div>
@@ -37,23 +66,6 @@
 					<option value="USD">Dolar Estadounidense</option>
 					<option value="EUR">Euros</option>
 					<option value="GBP">Libras</option>
-				</datalist>
-
-				<div class="form_div__text">
-					<span>ELIGE TU CRYPTOMONEDA</span>
-				</div>
-				<input
-					id="input_crypto-coin"
-					class="from_input"
-					list="crypto-coin"
-					placeholder="Elige tu cryptomoneda"
-					onfocus="this.value=''"
-					name="cryptoCoin"
-				/>
-				<datalist id="crypto-coin">
-					<!-- <option value="Bitcoin"></option>
-               <option value="Ethereum"></option> 
-            -->
 				</datalist>
 				<button class="form_btn" type="submit">
 					Cotizar
