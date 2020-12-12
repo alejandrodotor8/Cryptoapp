@@ -68,13 +68,14 @@ function submitFrom(e) {
 
 async function readAPI() {
 	const { coin, cryptoCoin } = objSearch;
-	const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cryptoCoin}&tsyms=${coin}`;
+	const url = `https://min-api.cryptocompare.com/data/price?fsym=${cryptoCoin}&tsyms=${coin}`;
+	//const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cryptoCoin}&tsyms=${coin}`;
 
 	try {
 		showSpinner();
 		const answer = await fetch(url);
 		const result = await answer.json();
-		showResult(result.DISPLAY[cryptoCoin][coin]);
+		showResult(result[coin]);
 	} catch (error) {
 		showSpinner();
 		console.log(error);
@@ -83,12 +84,11 @@ async function readAPI() {
 }
 function showResult(result) {
 	limpiarHTML();
-	console.log(result);
-	const valueInput = document.querySelector('#form_valor__inpup').value;
+	const valueInput = document.querySelector('#form_valor__input').value;
 	const { coin, cryptoCoin } = objSearch;
 
-	console.log(parseFloat(result.PRICE.replace(/,/g, '')));
-	console.log(Number(valueInput));
+	const options = { style: 'currency', currency: coin };
+	const numberFormat = new Intl.NumberFormat('en-US', options).format(result*Number(valueInput));
 
 	const section = document.createElement('section');
 	section.classList.add('section_result');
@@ -98,12 +98,10 @@ function showResult(result) {
          <img class="img_arrow" src="./img/arrow.svg" alt="" />
       <span class="coin-type">${coin}</span>
       </div>
-      <div><span class="total_result">${parseFloat(result.PRICE) *
-			Number(valueInput)}</span></div>
+      <div><span class="total_result">${numberFormat}</span></div>
    `;
 	sectionResult.appendChild(section);
 }
-
 
 function alert(msg) {
 	const alerta = document.querySelector('.form_error');

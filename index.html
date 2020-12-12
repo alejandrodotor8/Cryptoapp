@@ -20,19 +20,18 @@
 				<img class="art_img" src="./img/art.svg" alt="bitcoin draw" />
 			</figure>
 			<form id="form" action="">
-
 				<div class="form_div__text">
 					<span>ESCRIBE UN VALOR</span>
 				</div>
 				<input
-				value="1"
-				type="number"
-				id="form_valor__inpup"
+					value="1"
+					type="number"
+					id="form_valor__input"
 					class="from_input"
 					placeholder="Escribe un valor"
 					onfocus="this.value=''"
 				/>
-		
+
 				<div class="form_div__text">
 					<span>ELIGE TU CRYPTOMONEDA</span>
 				</div>
@@ -47,8 +46,7 @@
 				<datalist id="crypto-coin">
 					<!-- <option value="Bitcoin"></option>
                <option value="Ethereum"></option> 
-            -->
-				</datalist>
+            --></datalist>
 				<div class="form_div__text">
 					<span>ELIGE TU MONEDA</span>
 				</div>
@@ -61,7 +59,7 @@
 					name="coin"
 				/>
 				<datalist id="coin">
-					<option value="COL">Peso Colombiano</option>
+					<option value="COP">Peso Colombiano</option>
 					<option value="MXN">Peso Mexicano</option>
 					<option value="USD">Dolar Estadounidense</option>
 					<option value="EUR">Euros</option>
@@ -70,8 +68,8 @@
 				<button class="form_btn" type="submit">
 					Cotizar
 				</button>
-         </form>
-         <div id="section_result" class="result"></div>
+			</form>
+			<div id="section_result" class="result"></div>
 		</main>
 		<script src="./app.js"></script>
 	</body>
