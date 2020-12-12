@@ -66,19 +66,6 @@ function submitFrom(e) {
 	}
 }
 
-/* function readAPI() {
-	const { coin, cryptoCoin } = objSearch;
-
-	const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cryptoCoin}&tsyms=${coin}`;
-
-	showSpinner();
-
-	fetch(url)
-		.then((answer) => answer.json())
-		.then((result) => {
-			showResult(result.DISPLAY[cryptoCoin][coin]);
-		});
-} */
 async function readAPI() {
 	const { coin, cryptoCoin } = objSearch;
 	const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cryptoCoin}&tsyms=${coin}`;
