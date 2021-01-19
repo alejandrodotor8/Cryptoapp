@@ -30,6 +30,16 @@ document.addEventListener('DOMContentLoaded', () => {
 function readValue(e) {
 	objSearch[e.target.name] = e.target.value;
 }
+function selectCryptocoins(cryptoCoins) {
+	cryptoCoins.forEach((cryptoCoin) => {
+		const { FullName, Name } = cryptoCoin.CoinInfo;
+		const option = document.createElement('option');
+		option.value = Name;
+		option.textContent = FullName;
+
+		cryptoCoinDataList.appendChild(option);
+	});
+}
 
 async function consultCryptoCoins() {
 	const url =
@@ -44,22 +54,12 @@ async function consultCryptoCoins() {
 		console.log(error);
 	}
 }
-function selectCryptocoins(cryptoCoins) {
-	cryptoCoins.forEach((cryptoCoin) => {
-		const { FullName, Name } = cryptoCoin.CoinInfo;
-		const option = document.createElement('option');
-		option.value = Name;
-		option.textContent = FullName;
-
-		cryptoCoinDataList.appendChild(option);
-	});
-}
 
 function submitFrom(e) {
 	e.preventDefault();
 	const { coin, cryptoCoin } = objSearch;
 	if (coin === '' || cryptoCoin === '') {
-		alert('Ambos campos son necesarios');
+		alert('Both fields are required');
 		return;
 	} else {
 		readAPI();
@@ -79,16 +79,18 @@ async function readAPI() {
 	} catch (error) {
 		showSpinner();
 		console.log(error);
-		alert('Datos incorrectos');
+		alert('Incorrect data');
 	}
 }
 function showResult(result) {
-	limpiarHTML();
+	cleanHTML();
 	const valueInput = document.querySelector('#form_valor__input').value;
 	const { coin, cryptoCoin } = objSearch;
 
 	const options = { style: 'currency', currency: coin };
-	const numberFormat = new Intl.NumberFormat('en-US', options).format(result*Number(valueInput));
+	const numberFormat = new Intl.NumberFormat('en-US', options).format(
+		result * Number(valueInput)
+	);
 
 	const section = document.createElement('section');
 	section.classList.add('section_result');
@@ -104,28 +106,26 @@ function showResult(result) {
 }
 
 function alert(msg) {
-	const alerta = document.querySelector('.form_error');
-	if (!alerta) {
-		//Crear Alerta HTML
-		const alerta = document.createElement('div');
+	const divAlert = document.querySelector('.form_error');
+	if (!divAlert) {
+		const divAlert = document.createElement('div');
 
-		alerta.classList.add('form_error');
-		alerta.innerHTML = `<span>${msg}</span>`;
-		container.appendChild(alerta);
+		divAlert.classList.add('form_error');
+		divAlert.innerHTML = `<span>${msg}</span>`;
+		container.appendChild(divAlert);
 
-		//Eliminar despues de 3seg
 		setTimeout(() => {
-			alerta.remove();
+			divAlert.remove();
 		}, 3000);
 	}
 }
-function limpiarHTML() {
+function cleanHTML() {
 	while (sectionResult.firstChild) {
 		sectionResult.removeChild(sectionResult.firstChild);
 	}
 }
 function showSpinner() {
-	limpiarHTML();
+	cleanHTML();
 	const spinner = document.createElement('div');
 	spinner.classList.add('spinner');
 	spinner.innerHTML = `
