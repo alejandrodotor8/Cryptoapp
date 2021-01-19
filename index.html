@@ -9,7 +9,7 @@
 			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@700&display=swap"
 			rel="stylesheet"
 		/>
-		<title>Crytoapp</title>
+		<title>Cryptoapp</title>
 	</head>
 	<body>
 		<header>
@@ -21,52 +21,49 @@
 			</figure>
 			<form id="form" action="">
 				<div class="form_div__text">
-					<span>ESCRIBE UN VALOR</span>
+					<span>WRITE A VALUE</span>
 				</div>
 				<input
 					value="1"
 					type="number"
 					id="form_valor__input"
 					class="from_input"
-					placeholder="Escribe un valor"
+					placeholder="Write a value"
 					onfocus="this.value=''"
 				/>
 
 				<div class="form_div__text">
-					<span>ELIGE TU CRYPTOMONEDA</span>
+					<span>CHOOSE YOUR CRYPTOCURRENCY</span>
 				</div>
 				<input
 					id="input_crypto-coin"
 					class="from_input"
 					list="crypto-coin"
-					placeholder="Elige tu cryptomoneda"
+					placeholder="Choose your cryptocurrency"
 					onfocus="this.value=''"
 					name="cryptoCoin"
 				/>
-				<datalist id="crypto-coin">
-					<!-- <option value="Bitcoin"></option>
-               <option value="Ethereum"></option> 
-            --></datalist>
+				<datalist id="crypto-coin"></datalist>
 				<div class="form_div__text">
-					<span>ELIGE TU MONEDA</span>
+					<span>CHOOSE YOUR CURRENCY</span>
 				</div>
 				<input
 					id="input_coin"
 					class="from_input"
 					list="coin"
-					placeholder="Elige tu moneda"
+					placeholder="choose your currency"
 					onfocus="this.value=''"
 					name="coin"
 				/>
 				<datalist id="coin">
-					<option value="COP">Peso Colombiano</option>
-					<option value="MXN">Peso Mexicano</option>
-					<option value="USD">Dolar Estadounidense</option>
+					<option value="COP">Colombian peso</option>
+					<option value="MXN">Mexican peso</option>
+					<option value="USD">American dollar</option>
 					<option value="EUR">Euros</option>
-					<option value="GBP">Libras</option>
+					<option value="GBP">UK Pounds</option>
 				</datalist>
 				<button class="form_btn" type="submit">
-					Cotizar
+					Quote prices
 				</button>
 			</form>
 			<div id="section_result" class="result"></div>
